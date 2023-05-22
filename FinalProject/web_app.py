@@ -1,3 +1,5 @@
+import os
+import signal
 
 from flask import Flask
 
@@ -15,6 +17,14 @@ def get_user_name(user_id):
         return "<H1 id='error'>" + "no such user :" + user_id + "</H1>"
     else:
         return "<H1 id='user'>" + user_name + "</H1>", 200 # status code
+
+@app.route('/stop_server')
+def stop_server():
+    try:
+        os.kill(os.getpid(), signal.CTRL_C_EVENT)
+        return f'Server stopped'
+    except Exception as e:
+        return f"Error stopping server: {str(e)}"
 
 
 # host is pointing at local machine address

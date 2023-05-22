@@ -1,8 +1,6 @@
-from time import sleep
-
+import os
+import signal
 from flask import Flask, request, jsonify
-from pymysql.constants.FIELD_TYPE import JSON
-
 from FinalProject import db_connector
 
 
@@ -55,6 +53,14 @@ def user(user_id):
             return jsonify({'status': 'ok', 'user deleted': user_id}), 200
         else:
             return jsonify({'status': 'error', 'reason': 'no such id'}), 500
+
+@app.route('/stop_server')
+def stop_server():
+    try:
+        os.kill(os.getpid(), signal.CTRL_C_EVENT)
+        return f'Server stopped'
+    except Exception as e:
+        return f"Error stopping server: {str(e)}"
 
 
 app.run(host='127.0.0.1', debug=True, port=5000)
