@@ -6,16 +6,16 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('* * * * *')])])
                 }
-                git 'https://github.com/Dgotlieb/JenkinsTest.git'
+                git 'https://github.com/rotemlevin271/GitTest.git'
             }
         }
         stage('run python') {
             steps {
                 script {
                     if (checkOs() == 'Windows') {
-                        bat 'python 1.py'
+                        bat 'print("yes")'
                     } else {
-                        sh 'python 1.py'
+                        sh 'print("no")'
                     }
                 }
             }
