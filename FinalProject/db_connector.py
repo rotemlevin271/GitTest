@@ -2,18 +2,18 @@ import pymysql
 import datetime
 
 
-schema_name = 'sql8620853'
+schema_name = 'sql7626475'
 
-conn = pymysql.connect(host='sql8.freemysqlhosting.net', port=3306, user='sql8620853', passwd='3YplB3ZVVP', db='sql8620853')
+conn = pymysql.connect(host='sql7.freemysqlhosting.net', port=3306, user='sql7626475', passwd='JBNFTwa18c', db='sql7626475')
 conn.autocommit(True)
 
-# Getting a cursor from Database
+# # Getting a cursor from Database
 # cursor = conn.cursor()
-
-# Inserting data into table
+#
+# # Inserting data into table
 # statementToExecute = "CREATE TABLE `"+schema_name+"`.`usersRotem`(`user_id` INT NOT NULL,`user_name` VARCHAR(50) NOT NULL,`creation_date` DATETIME, PRIMARY KEY (`user_id`));"
 # cursor.execute(statementToExecute)
-
+#
 # cursor.close()
 # conn.close()
 
